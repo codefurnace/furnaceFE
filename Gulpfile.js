@@ -29,12 +29,12 @@ gulp.task('js', function() {
     compress: true,
     outSourceMap: true,
   }))
-  .pipe(gulp.dest(config.publicDir + '/js'));
+  .pipe(gulp.dest(config.publicDir + '/assets/js'));
 });
 
 gulp.task('fonts', function() {
     gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
-    .pipe(gulp.dest(config.publicDir + '/fonts'));
+    .pipe(gulp.dest(config.publicDir + '/assets/fonts'));
 });
 
 gulp.task('watch',function() {
