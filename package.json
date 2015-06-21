@@ -1,0 +1,30 @@
+{
+  "name": "furnaceFrontEnd",
+  "version": "1.0.0",
+  "description": "Codefurnace base front-end project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/codefurnace/furnaceFrontEnd"
+  },
+  "keywords": [
+    "gulp",
+    "scss"
+  ],
+  "author": "Mucahit Tutuncu <tutuncumucahit@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codefurnace/furnaceFrontEnd/issues"
+  },
+  "homepage": "https://github.com/codefurnace/furnaceFrontEnd",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-bower": "0.0.10",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglifyjs": "^0.6.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "furnaceFrontEnd",
+  "version": "1.0.0",
+  "authors": [
+    "Mucahit Tutuncu <tutuncumucahit@gmail.com>"
+  ],
+  "description": "Codefurnace base front-end project.",
+  "keywords": [
+    "gulp",
+    "scss"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}
