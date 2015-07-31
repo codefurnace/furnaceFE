@@ -2,10 +2,9 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglifyjs');
-var notify = require("gulp-notify");
 
 var config = {
-    materializeDir: 'bower_components/materialize',
+    bootstrapDir: 'bower_components/bootstrap-sass',
     bowerDir: 'bower_components',
     publicDir: 'public',
     scssDirectory: 'sources/scss/**/*.scss'
@@ -16,27 +15,25 @@ gulp.task('styles', function() {
         .pipe(sass({
             errLogToConsole: true,
             style: 'compressed',
-            includePaths: [config.materializeDir + '/sass']
+            includePaths: [config.bootstrapDir + '/assets/stylesheets']
         }))
-        .pipe(gulp.dest(config.publicDir+'/assets/css/'))
-        .pipe(notify("Scss compiled!"));
+        .pipe(gulp.dest(config.publicDir+'/assets/css/'));
 });
 
 gulp.task('js', function() {
   gulp.src([
     config.bowerDir + '/jquery/dist/jquery.min.js',
-    config.bowerDir + '/materialize/assets/javascripts/bootstrap.js',
+    config.bowerDir + '/bootstrap-sass/assets/javascripts/bootstrap.js',
   ])
   .pipe(uglify('app.js', {
     compress: true,
     outSourceMap: true,
   }))
-  .pipe(gulp.dest(config.publicDir + '/assets/js'))
-  .pipe(notify("Javascript Compiled!"));
+  .pipe(gulp.dest(config.publicDir + '/assets/js'));
 });
 
 gulp.task('fonts', function() {
-    gulp.src(config.materializeDir + '/font/**/*')
+    gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
     .pipe(gulp.dest(config.publicDir + '/assets/fonts'));
 });
 
