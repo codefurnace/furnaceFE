@@ -1,15 +1,14 @@
 {
-  "name": "furnaceFrontEnd",
-  "version": "1.0.0",
+  "name": "FurnaceFe",
+  "version": "2.0.0",
   "authors": [
-    "Mucahit Tutuncu <tutuncumucahit@gmail.com>"
+    "mucahit <tutuncumucahit@gmail.com>"
   ],
-  "description": "Codefurnace base front-end project.",
+  "description": "CodeFurnace base front-end project",
   "keywords": [
-    "gulp",
-    "scss"
+    "codefurnace"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -18,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "font-awesome": "~4.4.0"
   }
 }

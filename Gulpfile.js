@@ -1,45 +1,22 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglifyjs');
+var gulp = require("gulp");
+var elixir = require('laravel-elixir');
 
-var config = {
-    bootstrapDir: 'bower_components/bootstrap-sass',
-    bowerDir: 'bower_components',
-    publicDir: 'public',
-    scssDirectory: 'sources/scss/**/*.scss'
-};
+var paths = {
+	'jquery': './bower_components/jquery/',
+	'bootstrap': "./bower_components/bootstrap-sass/assets/",
+	'fontawesome' : "./bower_components/font-awesome/"
+}
 
-gulp.task('styles', function() {
-    gulp.src(config.scssDirectory)
-        .pipe(sass({
-            errLogToConsole: true,
-            style: 'compressed',
-            includePaths: [config.bootstrapDir + '/assets/stylesheets']
-        }))
-        .pipe(gulp.dest(config.publicDir+'/assets/css/'));
+elixir(function(mix) {
+	mix.sass(['main.scss', paths.fontawesome + 'scss/font-awesome.scss'], 'public/css', {includePaths: [paths.bootstrap + 'stylesheets/']})
+
+	.copy(paths.bootstrap + 'fonts/bootstrap/**', 'public/fonts/bootstrap')
+	.copy(paths.fontawesome + 'fonts/**', 'public/fonts')
+	.scripts([
+		paths.jquery + "dist/jquery.js",
+		paths.bootstrap + "javascripts/bootstrap.js",
+		'./resources/assets/js/main.js'
+	], 'public/js/app.js',  './');
+	
 });
 
-gulp.task('js', function() {
-  gulp.src([
-    config.bowerDir + '/jquery/dist/jquery.min.js',
-    config.bowerDir + '/bootstrap-sass/assets/javascripts/bootstrap.js',
-  ])
-  .pipe(uglify('app.js', {
-    compress: true,
-    outSourceMap: true,
-  }))
-  .pipe(gulp.dest(config.publicDir + '/assets/js'));
-});
-
-gulp.task('fonts', function() {
-    gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
-    .pipe(gulp.dest(config.publicDir + '/assets/fonts'));
-});
-
-gulp.task('watch',function() {
-    gulp.watch(config.scssDirectory,['styles']);
-    gulp.watch('sources/js/**/*.js',['js']);
-});
-
-gulp.task('default', ['styles', 'js', 'fonts']);
