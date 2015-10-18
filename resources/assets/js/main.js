@@ -1,0 +1,8 @@
+/**
+ * Main Javascript file.
+ */
+$(function(){
+
+	
+
+});
